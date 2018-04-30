@@ -1,0 +1,155 @@
+---
+---
+
+$hr-bg: #9e9fa5;
+$link-fg: #3c76eb;
+$link-hover-fg: #2b5fcb;
+
+$page-bg: #fafafa;
+$page-fg: #2f3137;
+
+$sidebar-bg: #333641;
+$sidebar-fg: #dbe0f4;
+$sidebar-heading-fg: #c678dd;
+$sidebar-heading-hover-fg: #d799eb;
+$sidebar-menu-fg: #56b6c2;
+$sidebar-menu-hover-fg: #74cfda;
+$sidebar-footer-fg: #5c6370;
+
+$page-horizontal-margin: 5vw;
+$page-vertical-margin: 3vw;
+$sidebar-width: 30vw;
+$separator-margin: 20px;
+$heading-margin: 40px;
+$table-padding: 10px;
+
+$main-font-size: 16px;
+$small-font-size: 14px;
+$sidebar-heading-font-size: 32px;
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $link-fg;
+  
+  &:hover {
+    color: $link-hover-fg;
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: $hr-bg;
+  margin: $separator-margin 0;
+}
+
+table {
+  margin: $separator-margin 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table td, table th {
+  padding: $table-padding;
+  border: 1px solid $hr-bg;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.page {
+  font-family: 'Merriweather', Georgia, Times, serif;
+  font-size: $main-font-size;
+  line-height: 1.5;
+  background: $page-bg;
+  color: $page-fg;
+}
+
+.page__content {
+  margin-left: $page-horizontal-margin;
+  margin-right: $page-horizontal-margin + $sidebar-width;
+  padding: $page-vertical-margin 0;
+  overflow-y: auto;
+}
+
+.page__heading {
+  margin: 0 0 $heading-margin 0;
+}
+
+.page__sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  width: $sidebar-width;
+  padding: $page-vertical-margin $page-horizontal-margin;
+
+  display: flex;
+  align-items: flex-end;
+
+  background: $sidebar-bg;
+}
+
+.sidebar {
+  font-family: 'Fira Mono', monospace;
+  color: $sidebar-fg;
+}
+
+.sidebar__heading,
+.sidebar__description,
+.sidebar__menu {
+  margin: $heading-margin 0;
+}
+
+.sidebar__footer {
+  margin: ($heading-margin * 2) 0 $heading-margin 0;
+}
+
+.sidebar__heading {
+  font-size: $sidebar-heading-font-size;
+  font-weight: bold;
+  text-decoration: none;
+  color: $sidebar-heading-fg;
+
+  &:hover {
+    color: $sidebar-heading-hover-fg;
+  }
+}
+
+.sidebar__menu {
+  padding: 0;
+  list-style: none;
+
+  a {
+    font-weight: bold;
+    color: $sidebar-menu-fg;
+
+    &:hover {
+      color: $sidebar-menu-hover-fg;
+    }
+  }
+}
+
+.sidebar__footer {
+  font-size: $small-font-size;
+  color: $sidebar-footer-fg;
+
+  a {
+    color: $sidebar-footer-fg;
+  }
+}
+
+.post__heading {
+  margin: 0;
+}
+
+.post__meta {
+  font-size: $small-font-size;
+}

@@ -1,0 +1,13 @@
+title: study notes
+title_sidebar: "> study-notes"
+email: seek.me.elsewhere@localhost
+description: >-
+  Notes I take over the course of my studies
+  for Bachelor's in Computer Systems Engineering
+github_username: thymelous
+
+BASE_PATH: https://thymelous.github.io/study-notes
+production_url: https://thymelous.github.io/study-notes
+repository: thymelous/study-notes
+
+markdown: kramdown

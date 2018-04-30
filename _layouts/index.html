@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+{%- if site.posts.size > 0 -%}
+  <h2 class="page__heading">Recent Notes</h2>
+
+  {%- for post in site.posts -%}
+    <section class="post">
+      <h3 class="post__heading">
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </h3>
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      <span class="post__meta">{{ post.date | date: date_format }}</span>
+      {{ post.excerpt }}
+    </section>
+    {% unless forloop.last %}<hr>{% endunless %}
+  {%- endfor -%}
+{%- endif -%}

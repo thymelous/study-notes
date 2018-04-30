@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site.title }}{% if page.title %} — {{ page.title }}{% endif %}</title>
+
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Merriweather:400,400i,700,700i">
+
+    {% if page.mathjax %}
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: { inlineMath: [['$','$']], displayMath:  [['$$','$$']], processEscapes: true },
+          "HTML-CSS": { availableFonts: ["TeX"] },
+          TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] },
+        });
+      </script>
+      <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    {% endif %}
+
+    {% seo title=false %}
+  </head>
+  <body class="page">
+    <main class="page__content">
+      {{ content }}
+    </main>
+    <aside class="page__sidebar">
+      <div class="sidebar">
+        <a class="sidebar__heading" href="/">{{ site.title_sidebar }}</a>
+        <p class="sidebar__description">{{ site.description }}</p>
+        <ul class="sidebar__menu">
+          <li><a href="https://github.com/{{ site.github_username }}">my github profile</a></li>
+        </ul>
+        <p class="sidebar__footer">
+          This website uses a custom theme inspired by <a href="https://github.com/atom/one-dark-syntax">Atom One Dark</a>'s palette.
+        </p>
+      </div>
+    </aside>
+  </body>
+</html>
+
