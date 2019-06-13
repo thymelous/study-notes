@@ -1,14 +1,14 @@
 title: study notes
 title_sidebar: "> study-notes"
-email: seek.me.elsewhere@localhost
+email: see.you@the.wired
 description: >-
   Notes I take over the course of my studies
   for Bachelor's in Computer Systems Engineering
-github_username: thymelous
+github_username: timlathy
 
-BASE_PATH: https://thymelous.github.io/study-notes
+BASE_PATH: https://timlathy.github.io/study-notes
 baseurl: /study-notes/
-production_url: https://thymelous.github.io/study-notes
-repository: thymelous/study-notes
+production_url: https://timlathy.github.io/study-notes
+repository: timlathy/study-notes
 
 markdown: kramdown
