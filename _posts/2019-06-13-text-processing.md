@@ -142,3 +142,32 @@ gawk> p $1
 $1 = "10"
 ```
 
+# sort: Sort Lines
+
+```sh
+sort -t [delimiter] -k [field #]
+```
+
+* `-n`: numeric sort
+* `-r`: sort in descending order
+
+# join: Merge Records
+
+```sh
+join -t [delimiter] -1 [file1 field #, starting from 1] -2 [file2 field #] file1 file2
+```
+
+Input files should be sorted by the field they're being merged on.
+
+In this case one example is all you need:
+```
+> cat characters.csv
+Shinji,M
+Asuka,F
+> cat roles.csv
+Pilot,Asuka
+Doormat,Shinji
+> join -t , -1 1 -2 2 <(sort characters.csv) <(sort -t , -k 2 roles.csv):
+Asuka,F,Pilot
+Shinji,M,Doormat
+```
