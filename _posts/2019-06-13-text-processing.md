@@ -11,11 +11,14 @@ Turns out it's been nine months since I've last posted here. I guess I have yet 
 reach the point where I have enough confidence in my skills and knowledge to share it.
 This note doesn't break the trend; I'm writing this only to refresh my memory before the exam.
 
-With the intro out of the way, let's focus on `grep`, `sed`, and `awk`.
+With the intro out of the way...
 
-## grep
+* TOC
+{:toc}
 
-`grep` is my friend when I need line-based text search. Something to keep in mind:
+# grep: Search
+
+`grep` is your friend for line-based text search. Something to keep in mind:
 out of the box, most of regex-specfic metacharacters require backslashes: `+`, `?`, `|`;
 `(` and `)` for capturing groups; `{` and `}` for specifying repetition count.
 
@@ -28,7 +31,7 @@ doing the labs I came up with this simple rule:
 > When I need to turn to regular expressions, I switch to `grep -E "expression"`.
 > It beats trying to remember what needs escaping and what doesn't.
 
-## sed
+# sed: Filter and Replace
 
 For simple text substitution and filtering, `sed` is the tool.
 `sed -i 's/one thing/another thing/g' file` to edit a file in place is a classic, and
@@ -66,7 +69,7 @@ I'm not sure what the practical usage of that is but it looks kinda cool.
 
 The catch with `-E` applies to `sed` just as to `grep`.
 
-## awk
+# awk: Records and Complex Processing
 
 I never understood the appeal of `awk`, but I think that can be attributed to the fact I didn't need to do
 any elaborate text processing. As far as I can judge, for basic replace/filter tasks `sed` one-liners are always shorter and more concise.
@@ -80,7 +83,17 @@ awk -F , '$3 ~ /pattern/ { print $2, $4 }'
 
 And it looks pretty self-explanatory too.
 
-`awk` is also a surprisingly powerful language for more complex scripts:
+Passing shell variables to `awk` scripts through escaping can get ugly fast, although it's possible:
+```sh
+awk 'BEGIN { print "'"$HOME"'" }'
+```
+
+Using the `-v` option is preferred:
+```sh
+awk -v shell="$SHELL" -v home="$HOME" 'BEGIN { print shell, home }'
+```
+
+Finally, `awk` is a surprisingly powerful language for more complex scripts:
 
 ```awk
 BEGIN {
@@ -128,3 +141,4 @@ Breakpoint 1, main() at `script.awk':7
 gawk> p $1
 $1 = "10"
 ```
+
